@@ -5,10 +5,15 @@
 <body>
 <?php
 include 'calendar.php';
+include 'postgresdb.php';
  
 $calendar = new Calendar();
- 
+$pgdb = new PostgresDB(); 
 echo $calendar->show();
+
+$pgdb->dbConnect();
+$pgdb->dbCreateTBLHSS();
+$pgdb->dbClose();
 ?>
 </body>
 </html>    
